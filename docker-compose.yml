@@ -1,0 +1,8 @@
+version: '3'
+services:
+  rvc2mqtt:
+    container_name: rvc2mqtt
+    image: "bradykern/rvc2mqtt:latest"
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
