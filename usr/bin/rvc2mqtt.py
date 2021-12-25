@@ -268,6 +268,8 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--specfile", default = "/etc/rvc/rvc-spec.yml", help="RVC Spec file")
     parser.add_argument("-t", "--topic", default = "RVC", help="MQTT topic prefix")
     parser.add_argument("-p", "--pstrings", action='store_true', help="Send parameterized strings to mqtt")
+    parser.add_argument("-u", "--user", default = "", help="MQTT User")
+    parser.add_argument("-pwd", "--password", default = "", help="MQTT User Password")
     args = parser.parse_args()
 
     debug_level = args.debug
@@ -279,10 +281,13 @@ if __name__ == "__main__":
     if mqttOut:
         import paho.mqtt.client as mqtt
         broker_address=args.broker
+        username=args.user
+        password=args.password
         mqttc = mqtt.Client() #create new instance
         mqttc.on_connect = on_mqtt_connect
         mqttc.on_subscribe = on_mqtt_subscribe
         mqttc.on_message = on_mqtt_message
+        mqttc.username_pw_set(username,password)
 
         try:
             print("Connecting to MQTT: {0:s}".format(broker_address))
