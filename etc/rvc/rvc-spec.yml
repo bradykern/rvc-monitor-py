@@ -13,7 +13,6 @@
 # limitations under the License.
 
 ---
-
 # This file is versioned. Any changes here, even as small as changing
 # a name from lower case to upper case, can have an impact on tools
 # that have been written to use the mqtt output generated from this
@@ -93,7 +92,6 @@ API_VERSION: 0
       name: Full Battery Capacity
     - byte: 5-6
       name: Battery DC Power
-
 
 17F00:
   name: GENERAL_RESET
@@ -2832,14 +2830,14 @@ API_VERSION: 0
       name: instance
       type: uint8
       values:
-         0: fresh water
-         1: black waste
-         2: gray waste
-         3: lpg
-         16: second fresh water
-         17: second black waste
-         18: second gray waste
-         19: second lpg
+        0: fresh water
+        1: black waste
+        2: gray waste
+        3: lpg
+        16: second fresh water
+        17: second black waste
+        18: second gray waste
+        19: second lpg
     - byte: 1
       name: relative level
       type: uint8
@@ -3283,6 +3281,31 @@ API_VERSION: 0
 1FEB0:
   name: SOLAR_CONTROLLER_CONFIGURATION_COMMAND
 
+1FEA3:
+  name: CHARGER_STATUS_2
+  parameters:
+    - byte: 0
+      name: Charger Instance
+      type: uint8
+    - byte: 1
+      name: DC Source Instance
+      type: uint8
+    - byte: 2
+      name: Charger priority
+      type: uint8
+    - byte: 3-4
+      name: Charging voltage
+      type: uint16
+      unit: V
+    - byte: 5-6
+      name: Charging current
+      type: uint16
+      unit: A
+    - byte: 7
+      name: Charger temperature
+      type: uint8
+      unit: Deg C
+
 1FEAF:
   name: SOLAR_EQUALIZATION_STATUS
 
@@ -3558,4 +3581,3 @@ Z0005:
       name: low frequency limit
       type: uint8
       unit: Hz
-

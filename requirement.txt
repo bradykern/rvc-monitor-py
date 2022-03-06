@@ -1,3 +1,3 @@
-python-can
+python-can == 3.3.4
 ruamel.yaml
 paho.mqtt
