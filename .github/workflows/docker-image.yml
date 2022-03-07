@@ -33,3 +33,5 @@ jobs:
         push: true
         platforms: linux/arm/v6,linux/arm/v7
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rvc2mqtt:action-test
+        cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/rvc2mqtt:action-test
+        cache-to: type=inline
